@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -267,10 +268,47 @@ fun GradientSample() {
             (yRangeMax - y) * yStep
         }
 
-        val drawPoints: (
+        val xStart = 0f
+        val xEnd = size.width
+        val yBot = size.height
+
+        val drawLineGradient: (
             points: List<Pair<Float, Float>>,
             color: Color,
         ) -> Unit = { points, color ->
+            val firstPoint = points.first()
+            val topY = calculateYCoordinate(points.minBy { calculateYCoordinate(it.second) }.second)
+
+            val gradientPath = Path()
+
+            // initial positions
+            gradientPath.moveTo(0f, size.height)
+
+            // move gradient up left corner to first point
+            gradientPath.lineTo(
+                calculateXCoordinate(firstPoint.first),
+                calculateYCoordinate(firstPoint.second),
+            )
+
+            points.forEachIndexed { index, _ ->
+                val nextPoint = points.getOrNull(index + 1)
+
+                nextPoint?.let {
+                    gradientPath.lineTo(
+                        calculateXCoordinate(nextPoint.first),
+                        calculateYCoordinate(nextPoint.second),
+                    )
+                }
+            }
+            gradientPath.lineTo(xEnd, yBot)
+            gradientPath.lineTo(xStart, yBot)
+
+            val gradient = Brush.verticalGradient(
+                colors = listOf(color, Color.White),
+                startY = topY,
+                endY = yBot,
+            )
+            drawPath(gradientPath, gradient, alpha = .5f)
 
             points.forEachIndexed { index, point ->
                 val nextPoint = points.getOrNull(index + 1)
@@ -316,8 +354,8 @@ fun GradientSample() {
             Pair(10f, -2f),
         )
 
-        drawPoints(points1, Color.Blue)
-        drawPoints(points2, Color.Cyan)
+        drawLineGradient(points1, Color.Blue)
+        drawLineGradient(points2, Color.Cyan)
     }
 }
 
