@@ -13,15 +13,16 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.res.ResourcesCompat
 import com.jumpstartcharts.jumpstartcharts.R
 
-val ChartGuidelinePattern = PathEffect.dashPathEffect(floatArrayOf(10f, 10f))
-val ChartGuidelineStrokeWidth = 4.dp.value
+val CHART_GUIDELINE_PATTERN = PathEffect.dashPathEffect(floatArrayOf(10f, 10f))
+val CHART_GUIDELINE_STROKE_WIDTH = 4.dp.value
+const val DEFAULT_LABEL_SIZE = 12
 
 fun getDefaultAxisLabelPaint(context: Context): NativePaint {
     return getFontPaint(
         context,
         R.font.roboto_regular,
         Color.Black,
-        12,
+        DEFAULT_LABEL_SIZE,
     )
 }
 

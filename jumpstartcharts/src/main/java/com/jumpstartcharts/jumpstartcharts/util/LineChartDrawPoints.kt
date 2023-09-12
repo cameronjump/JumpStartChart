@@ -14,7 +14,7 @@ import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
  */
 fun DrawScope.defaultDrawLineChart(
     data: List<Pair<List<ChartPositionPoint>, Color>>,
-    strokeWidth: Float = ChartGuidelineStrokeWidth,
+    strokeWidth: Float = CHART_GUIDELINE_STROKE_WIDTH,
 ) {
     data.forEach {
         drawLine(it.first, it.second, strokeWidth)
@@ -26,7 +26,7 @@ fun DrawScope.defaultDrawLineChart(
  */
 fun DrawScope.drawCubicLineChart(
     data: List<Pair<List<ChartPositionPoint>, Color>>,
-    strokeWidth: Float = ChartGuidelineStrokeWidth,
+    strokeWidth: Float = CHART_GUIDELINE_STROKE_WIDTH,
 ) {
     data.forEach {
         drawCubicLine(
@@ -47,7 +47,7 @@ fun DrawScope.drawLineGradientChart(
     xStart: Float,
     xEnd: Float,
     yBot: Float,
-    strokeWidth: Float = ChartGuidelineStrokeWidth,
+    strokeWidth: Float = CHART_GUIDELINE_STROKE_WIDTH,
     gradientAlpha: Float = 1f,
     gradientStartColors: List<Color> = emptyList(),
     endGradientColor: Color = Color.White,
@@ -89,7 +89,7 @@ fun DrawScope.drawCubicGradientChart(
     xStart: Float,
     xEnd: Float,
     yBot: Float,
-    strokeWidth: Float = ChartGuidelineStrokeWidth,
+    strokeWidth: Float = CHART_GUIDELINE_STROKE_WIDTH,
     gradientAlpha: Float = 1f,
     gradientStartColors: List<Color> = emptyList(),
     endGradientColor: Color = Color.White,

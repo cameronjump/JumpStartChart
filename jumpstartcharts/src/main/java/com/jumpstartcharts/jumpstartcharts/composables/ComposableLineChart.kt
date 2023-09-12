@@ -20,8 +20,8 @@ import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
 import com.jumpstartcharts.jumpstartcharts.data.Dataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
-import com.jumpstartcharts.jumpstartcharts.util.ChartGuidelinePattern
-import com.jumpstartcharts.jumpstartcharts.util.ChartGuidelineStrokeWidth
+import com.jumpstartcharts.jumpstartcharts.util.CHART_GUIDELINE_PATTERN
+import com.jumpstartcharts.jumpstartcharts.util.CHART_GUIDELINE_STROKE_WIDTH
 import com.jumpstartcharts.jumpstartcharts.util.defaultDrawHorizontalGridLine
 import com.jumpstartcharts.jumpstartcharts.util.defaultXAxis
 import com.jumpstartcharts.jumpstartcharts.util.defaultYAxis
@@ -141,8 +141,8 @@ private fun DrawScope.defaultDrawLineChartHighlight(
 ) {
     drawLine(
         color = Color.DarkGray,
-        strokeWidth = ChartGuidelineStrokeWidth,
-        pathEffect = ChartGuidelinePattern,
+        strokeWidth = CHART_GUIDELINE_STROKE_WIDTH,
+        pathEffect = CHART_GUIDELINE_PATTERN,
         start = Offset(x, yMin),
         end = Offset(x, yMax),
     )

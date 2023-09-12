@@ -10,13 +10,13 @@ object MockGraphData {
     data class MockPoint(
         override val x: Long,
         override val y: Float,
-        val label: String
+        val label: String,
     ) : ChartValuePoint
 
     data class MockDataset<T : ChartValuePoint>(
         override val color: Color = Color.Black,
         override val highlightColor: Color = lerp(color, Color.White, .5f),
-        override val points: List<T>
+        override val points: List<T>,
     ) : Dataset<T>
 
     val MOCK_LINE_CHART_DATA_A = listOf(
@@ -39,7 +39,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_A = MockDataset(
         points = MOCK_LINE_CHART_DATA_A,
-        color = Color(color = 0xFF3C4655)
+        color = Color(color = 0xFF3C4655),
     )
 
     val MOCK_LINE_CHART_DATA_B = listOf(
@@ -62,7 +62,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_B = MockDataset(
         points = MOCK_LINE_CHART_DATA_B,
-        color = Color(color = 0xFF7990A5)
+        color = Color(color = 0xFF7990A5),
     )
 
     private val MOCK_LINE_CHART_DATA_NEGATIVE_VALUES = listOf(
@@ -85,7 +85,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_C = MockDataset(
         points = MOCK_LINE_CHART_DATA_NEGATIVE_VALUES,
-        color = Color.Yellow
+        color = Color.Yellow,
     )
 
     private val MOCK_LINE_CHART_DATA_D = listOf(
@@ -108,7 +108,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_D = MockDataset(
         points = MOCK_LINE_CHART_DATA_D,
-        color = Color.Green
+        color = Color.Green,
     )
 
     private val MOCK_BAR_CHART_DATA_A = listOf(
@@ -147,7 +147,7 @@ object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_C = MockDataset(
         points = MOCK_BAR_CHART_DATA_C,
-        color = Color.Magenta
+        color = Color.Magenta,
     )
 
     private val MOCK_BAR_CHART_DATA_D = listOf(
@@ -156,7 +156,6 @@ object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_D = MockDataset(
         points = MOCK_BAR_CHART_DATA_D,
-        color = Color.Yellow
+        color = Color.Yellow,
     )
-
 }

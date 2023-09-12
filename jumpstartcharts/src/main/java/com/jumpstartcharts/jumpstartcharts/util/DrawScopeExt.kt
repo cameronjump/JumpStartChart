@@ -144,7 +144,7 @@ fun DrawCenteredOffsetTextPreview() {
 fun DrawScope.defaultXAxis(x1: Float, x2: Float, y: Float) {
     drawLine(
         color = Color.DarkGray,
-        strokeWidth = ChartGuidelineStrokeWidth,
+        strokeWidth = CHART_GUIDELINE_STROKE_WIDTH,
         start = Offset(x1, y),
         end = Offset(x2, y),
     )
@@ -156,7 +156,7 @@ fun DrawScope.defaultXAxis(x1: Float, x2: Float, y: Float) {
 fun DrawScope.defaultYAxis(y1: Float, y2: Float, x: Float) {
     drawLine(
         color = Color.DarkGray,
-        strokeWidth = ChartGuidelineStrokeWidth,
+        strokeWidth = CHART_GUIDELINE_STROKE_WIDTH,
         start = Offset(x, y1),
         end = Offset(x, y2),
     )
@@ -173,7 +173,7 @@ fun DrawScope.defaultDrawHorizontalGridLine(
     drawLine(
         color = Color.DarkGray,
         strokeWidth = 1.dp.toPx(),
-        pathEffect = ChartGuidelinePattern,
+        pathEffect = CHART_GUIDELINE_PATTERN,
         start = Offset(xStart, yPos),
         end = Offset(xEnd, yPos),
     )
