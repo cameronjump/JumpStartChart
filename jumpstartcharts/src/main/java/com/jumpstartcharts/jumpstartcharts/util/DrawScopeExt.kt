@@ -157,7 +157,6 @@ fun DrawScope.defaultYAxis(y1: Float, y2: Float, x: Float) {
     drawLine(
         color = Color.DarkGray,
         strokeWidth = ChartGuidelineStrokeWidth,
-        pathEffect = ChartGuidelinePattern,
         start = Offset(x, y1),
         end = Offset(x, y2),
     )

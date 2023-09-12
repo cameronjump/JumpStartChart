@@ -38,7 +38,7 @@ fun <ChartPoint : ChartValuePoint> ComposableLineChart(
     yValueRangeMin: Float = datasets.flatMap { it.points }.minOfOrNull { it.y } ?: Float.MIN_VALUE,
     yValueRangeMax: Float = datasets.flatMap { it.points }.maxOfOrNull { it.y } ?: Float.MAX_VALUE,
     formatXAxisLabel: (value: Long) -> String? = { null },
-    formatYAxisLabel: (value: Float) -> String? = { it.toString() },
+    formatYAxisLabel: (value: Float) -> String? = { it.toInt().toString() },
     updateHoistedSelectedValue: (ChartSelectedValue?) -> Unit = {},
     hoistIsBeingDragged: (Boolean) -> Unit = {},
     canvasHeight: Dp = 300.dp,
@@ -179,7 +179,7 @@ private fun calculateYPosition(
     return (yMax - yValue) * yStep
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun LineChartPreview() {
     Box(modifier = Modifier.padding(8.dp)) {
