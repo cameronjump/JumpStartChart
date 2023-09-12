@@ -1,9 +1,22 @@
 package com.jumpstartcharts.sample.ui.canvaschart
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -12,11 +25,17 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.launch
 
 @Preview(showBackground = true)
 @Composable
 fun CanvasChartStepOne() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         // ...
     }
 }
@@ -24,7 +43,12 @@ fun CanvasChartStepOne() {
 @Preview(showBackground = true)
 @Composable
 fun CanvasChartStepTwo() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -40,7 +64,12 @@ fun CanvasChartStepTwo() {
 @Preview(showBackground = true)
 @Composable
 fun CanvasChartStepThree() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -64,7 +93,12 @@ fun CanvasChartStepThree() {
 @Preview(showBackground = true)
 @Composable
 fun CanvasChartStepFour() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -137,7 +171,12 @@ fun CanvasChartStepFour() {
 @Preview(showBackground = true)
 @Composable
 fun CanvasChartStepFive() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -231,7 +270,12 @@ fun CanvasChartStepFive() {
 @Preview(showBackground = true)
 @Composable
 fun GradientSample() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -362,7 +406,12 @@ fun GradientSample() {
 @Preview(showBackground = true)
 @Composable
 fun QuadraticSample() {
-    Canvas(modifier = Modifier.size(400.dp).background(Color.LightGray)) {
+    Canvas(
+        modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .background(Color.LightGray),
+    ) {
         val lineWidth = 4.dp.value
 
         // draw x-axis
@@ -479,4 +528,99 @@ fun Path.cubicFromTo(point1x: Float, point1y: Float, point2x: Float, point2y: Fl
         point2x,
         point2y,
     )
+}
+
+private data class SampleItem(
+    val title: String,
+    val show: @Composable () -> Unit,
+)
+
+private val sampleItems = listOf(
+    SampleItem("Step one") {
+        CanvasChartStepOne()
+    },
+    SampleItem("Step two") {
+        CanvasChartStepTwo()
+    },
+    SampleItem("Step three") {
+        CanvasChartStepThree()
+    },
+    SampleItem("Step four") {
+        CanvasChartStepFour()
+    },
+    SampleItem("Step five") {
+        CanvasChartStepFive()
+    },
+    SampleItem("Gradient example") {
+        GradientSample()
+    },
+
+    SampleItem("Quadratic example") {
+        QuadraticSample()
+    },
+)
+
+@OptIn(ExperimentalFoundationApi::class)
+@Preview
+@Composable
+fun CanvasChartSampleScreen() {
+    Column(modifier = Modifier.padding(24.dp)) {
+        Text(
+            text = "These samples are all built directly on Canvas.",
+            style = MaterialTheme.typography.bodyLarge,
+        )
+
+        Spacer(modifier = Modifier.padding(24.dp))
+
+        val pageCount = sampleItems.size
+        val state = rememberPagerState(
+            initialPage = 0,
+            initialPageOffsetFraction = 0f,
+        ) {
+            pageCount
+        }
+
+        val scope = rememberCoroutineScope()
+
+        HorizontalPager(
+            state = state,
+        ) {
+            Column {
+                Text(
+                    text = sampleItems[it].title,
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+
+                Spacer(modifier = Modifier.padding(16.dp))
+
+                sampleItems[it].show()
+            }
+        }
+
+        Spacer(modifier = Modifier.padding(24.dp))
+
+        Row {
+            if (state.currentPage > 0) {
+                Button(
+                    modifier = Modifier.weight(1f),
+                    onClick = { scope.launch { state.animateScrollToPage(state.currentPage - 1) } },
+                ) {
+                    Text(text = "Previous page")
+                }
+            } else {
+                Spacer(modifier = Modifier.weight(1f))
+            }
+
+            if (state.currentPage < pageCount - 1) {
+                Button(
+                    modifier = Modifier.weight(1f),
+                    onClick = { scope.launch { state.animateScrollToPage(state.currentPage + 1) } },
+                ) {
+                    Text(text = "Next page")
+                }
+            } else {
+                Spacer(modifier = Modifier.weight(1f))
+            }
+        }
+    }
 }
