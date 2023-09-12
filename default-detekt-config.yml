@@ -1,0 +1,96 @@
+config:
+  validation: true
+  warningsAsErrors: false
+output-reports:
+  exclude:
+    - 'TxtOutputReport'
+    - 'XmlOutputReport'
+    - 'SarifOutputReport'
+    - 'MdOutputReport'
+formatting:
+  active: true
+  android: true
+  autoCorrect: true
+  FinalNewline:
+    active: false
+    autoCorrect: false
+    insertFinalNewLine: false
+  NoBlankLineBeforeRbrace:
+    active: false
+    autoCorrect: false
+  MaximumLineLength:
+    ignoreBackTickedIdentifier: true
+    excludes: &testFolders
+      - '**/test/**'
+      - '**/androidTest/**'
+      - '**/androidTestStaging/**'
+  ArgumentListWrapping:
+    excludes: *testFolders
+  PackageName:
+    active: false
+  MultiLineIfElse:
+    active: false
+complexity:
+  LargeClass:
+    active: false
+  LongMethod:
+    threshold: 150
+  LongParameterList:
+    active: false
+    ignoreAnnotated: [ 'Composable' ]
+    functionThreshold: 15
+    constructorThreshold: 15
+  CyclomaticComplexMethod:
+    threshold: 25
+  TooManyFunctions:
+    thresholdInFiles: 30
+    thresholdInClasses: 30
+    thresholdInInterfaces: 30
+    thresholdInObjects: 30
+    thresholdInEnums: 30
+empty-blocks:
+  EmptyFunctionBlock:
+    active: false
+comments:
+  active: true
+  UndocumentedPublicClass:
+    active: true
+    searchInNestedClass: false
+    searchInInnerClass: false
+    searchInInnerObject: false
+    searchInInnerInterface: false
+    excludes: *testFolders
+naming:
+  active: true
+  FunctionNaming:
+    ignoreAnnotated: [ 'Composable' ]
+    excludes: *testFolders
+  PackageNaming:
+    active: false
+  VariableNaming:
+    active: false
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][A-Za-z0-9_]*'
+  MatchingDeclarationName:
+    active: false
+style:
+  active: true
+  # Disable this, using formatting.MaximumLineLength for auto-correct
+  MaxLineLength:
+    active: false
+  UnusedPrivateMember:
+    ignoreAnnotated: [ 'Preview', 'BasePreview', 'FontScalePreview', 'FullPreviews' ]
+  NewLineAtEndOfFile:
+    active: false
+  ForbiddenComment:
+    active: false
+  MagicNumber:
+    active: false
+  ReturnCount:
+    active: false
+  UseCheckOrError:
+    active: false
+  UnnecessaryAbstractClass:
+    active: false
+  DestructuringDeclarationWithTooManyEntries:
+    maxDestructuringEntries: 4

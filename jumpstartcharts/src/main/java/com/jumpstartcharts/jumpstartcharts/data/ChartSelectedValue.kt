@@ -5,5 +5,5 @@ package com.jumpstartcharts.jumpstartcharts.data
  */
 data class ChartSelectedValue(
     val xValue: Long,
-    val isHighlighted: Boolean
+    val isHighlighted: Boolean,
 ) : java.io.Serializable

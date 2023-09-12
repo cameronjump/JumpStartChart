@@ -49,9 +49,9 @@ import kotlinx.coroutines.launch
  * drawing labels.
  *
  * This function has no default values. Default values will provided one layer up for the chart
- * type. ie [ComposableLineChart].
+ * type. ie [LineChart].
  *
- * [datasets] vararg that let's you graph as many datasets as you please
+ * [datasets] list of  datasets
  * [contentDescription] describes the content of the chart for accessibility purposes
  * [yValueRangeMin] lower bound of y value range
  * [yValueRangeMax] upper bound of y value range
@@ -71,14 +71,13 @@ import kotlinx.coroutines.launch
  * [drawHighlight] lambda that takes points and yValues and draws the highlight
  * [drawHorizontalGridLine] lambda that takes points and draws a horizontal grid line
  * [scrubbingBehavior] defines how a graph is interacted with
- * [labelBar] defines behavior of highlight bar, if null no highlight bar is displayed
  * [drawPoints] lambda that draws the points on the canvas
  * [calculateXPosition] lambda that calculates x position given x parameters
  * [calculateYPosition] lambda that calculates y position given y parameters
  */
 @Composable
 @Suppress("LongMethod")
-fun <ChartPoint : ChartValuePoint> BaseComposableChart(
+fun <ChartPoint : ChartValuePoint> BaseChart(
     datasets: List<Dataset<ChartPoint>>,
     contentDescription: String,
     yValueRangeMin: Float,
@@ -212,7 +211,7 @@ fun <ChartPoint : ChartValuePoint> BaseComposableChart(
         }
 
         /**
-         * The [BaseComposableChart] handles calculating space for your labels.
+         * The [BaseChart] handles calculating space for your labels.
          * It does this by calculating all string labels for the axis values and the axis range
          * and finding the longest string for that axis.
          */
@@ -428,7 +427,7 @@ private fun <ChartPoint : ChartValuePoint> BaseChartCanvas(
 ) {
     Canvas(modifier = modifier) {
         /**
-         * The [BaseComposableChart] handles calculating space for your labels.
+         * The [BaseChart] handles calculating space for your labels.
          * At this step it takes the longest labels we calculated earlier and measures them
          * with the provided paint. If no labels are found default to 0.
          */

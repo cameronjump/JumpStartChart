@@ -13,7 +13,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.jumpstartcharts.jumpstartcharts.util.defaultDrawLineChart
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
 import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
@@ -22,21 +21,23 @@ import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
 import com.jumpstartcharts.jumpstartcharts.util.CHART_GUIDELINE_PATTERN
 import com.jumpstartcharts.jumpstartcharts.util.CHART_GUIDELINE_STROKE_WIDTH
+import com.jumpstartcharts.jumpstartcharts.util.ChartRangeCalculator
 import com.jumpstartcharts.jumpstartcharts.util.defaultDrawHorizontalGridLine
+import com.jumpstartcharts.jumpstartcharts.util.defaultDrawLineChart
 import com.jumpstartcharts.jumpstartcharts.util.defaultXAxis
 import com.jumpstartcharts.jumpstartcharts.util.defaultYAxis
 import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
 
 /**
  * Pass in lambdas to change functionality.
- * Provides reason defaults to make [BaseComposableChart] a Line Chart
+ * Provides reason defaults to make [BaseChart] a Line Chart
  */
 @Composable
-fun <ChartPoint : ChartValuePoint> ComposableLineChart(
+fun <ChartPoint : ChartValuePoint> LineChart(
     datasets: List<Dataset<ChartPoint>>,
     contentDescription: String,
-    yValueRangeMin: Float = datasets.flatMap { it.points }.minOfOrNull { it.y } ?: Float.MIN_VALUE,
-    yValueRangeMax: Float = datasets.flatMap { it.points }.maxOfOrNull { it.y } ?: Float.MAX_VALUE,
+    yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
+    yValueRangeMax: Float = ChartRangeCalculator.defaultUpperBound(datasets),
     formatXAxisLabel: (value: Long) -> String? = { null },
     formatYAxisLabel: (value: Float) -> String? = { it.toInt().toString() },
     updateHoistedSelectedValue: (ChartSelectedValue?) -> Unit = {},
@@ -104,7 +105,7 @@ fun <ChartPoint : ChartValuePoint> ComposableLineChart(
     if (xValueRangeMin == null || xValueRangeMax == null) {
         return
     } else {
-        BaseComposableChart(
+        BaseChart(
             datasets = datasets,
             contentDescription = contentDescription,
             yValueRangeMin = yValueRangeMin,
@@ -183,7 +184,7 @@ private fun calculateYPosition(
 @Composable
 private fun LineChartPreview() {
     Box(modifier = Modifier.padding(8.dp)) {
-        ComposableLineChart(
+        LineChart(
             listOf(
                 MockGraphData.MOCK_LINE_CHART_DATASET_A,
                 MockGraphData.MOCK_LINE_CHART_DATASET_B,

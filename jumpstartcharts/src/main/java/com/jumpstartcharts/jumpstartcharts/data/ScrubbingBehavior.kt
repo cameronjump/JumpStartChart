@@ -1,5 +1,8 @@
 package com.jumpstartcharts.jumpstartcharts.data
 
+/**
+ * Defines how a graph may be interacted with
+ */
 sealed class ScrubbingBehavior {
 
     abstract val supportGraphTouchScrubbing: Boolean

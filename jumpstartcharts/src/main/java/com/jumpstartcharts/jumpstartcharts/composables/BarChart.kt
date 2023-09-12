@@ -20,6 +20,7 @@ import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
 import com.jumpstartcharts.jumpstartcharts.data.Dataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
+import com.jumpstartcharts.jumpstartcharts.util.ChartRangeCalculator
 import com.jumpstartcharts.jumpstartcharts.util.defaultDrawHorizontalGridLine
 import com.jumpstartcharts.jumpstartcharts.util.defaultXAxis
 import com.jumpstartcharts.jumpstartcharts.util.defaultYAxis
@@ -27,14 +28,14 @@ import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
 
 /**
  * Pass in lambdas to change functionality.
- * Provides reason defaults to make [BaseComposableChart] a Bar Chart
+ * Provides reason defaults to make [BaseChart] a Bar Chart
  */
 @Composable
 fun <ChartPoint : ChartValuePoint> ComposableBarChart(
     datasets: List<Dataset<ChartPoint>>,
     contentDescription: String,
-    yValueRangeMin: Float = datasets.flatMap { it.points }.minOfOrNull { it.y } ?: Float.MIN_VALUE,
-    yValueRangeMax: Float = datasets.flatMap { it.points }.maxOfOrNull { it.y } ?: Float.MAX_VALUE,
+    yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
+    yValueRangeMax: Float = ChartRangeCalculator.defaultUpperBound(datasets),
     formatXAxisLabel: (value: Long) -> String? = { null },
     formatYAxisLabel: (value: Float) -> String? = { it.toInt().toString() },
     updateHoistedSelectedValue: (ChartSelectedValue?) -> Unit = {},
@@ -139,7 +140,7 @@ fun <ChartPoint : ChartValuePoint> ComposableBarChart(
         val xValueRangeMin = xSmallestValue
         val xValueRangeMax = xLargestValue + 1
 
-        BaseComposableChart(
+        BaseChart(
             datasets = datasets,
             contentDescription = contentDescription,
             yValueRangeMin = yValueRangeMin,
