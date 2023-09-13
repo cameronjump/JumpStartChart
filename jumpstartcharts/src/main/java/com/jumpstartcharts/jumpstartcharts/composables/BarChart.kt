@@ -360,7 +360,7 @@ private fun calculateYPosition(
 
 @Preview(showBackground = true)
 @Composable
-private fun BarChartPreview() {
+internal fun BarChartPreview() {
     Box(modifier = Modifier.padding(8.dp)) {
         ComposableBarChart(
             listOf(
