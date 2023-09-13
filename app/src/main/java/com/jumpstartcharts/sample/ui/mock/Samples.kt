@@ -9,4 +9,7 @@ val samples = listOf(
     SampleItem("Line Chart Sample Screen") {
         LineChartSampleScreen()
     },
+    SampleItem("Bar Chart Sample Screen") {
+        BarChartSampleScreen()
+    },
 )
