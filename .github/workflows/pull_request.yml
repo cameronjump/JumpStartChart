@@ -6,7 +6,7 @@ on:
 jobs:
   check:
       name: 'Run unit test'
-      runs-on: [ Android-Builder, Linux ]
+      runs-on: ubuntu-latest
   
       steps:
         - uses: actions/checkout@v3
