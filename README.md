@@ -43,11 +43,10 @@ Sample code and chart library for building charts in Android with Compose. (Not 
 ## Getting Started
 Build the app see the previews of the various charts. Refer to previews in code to see how to build each. Use the canvas chart sample to learn how to build your own simple chart.
 
-![image](https://github.com/cameronjump/JumpStartChart/assets/23038185/ba8fa5c0-51d6-4881-8548-ea35bae54526)
-![image](https://github.com/cameronjump/JumpStartChart/assets/23038185/5a2e0eaf-b155-4d7e-846b-d0d90d500cd6)
-![image](https://github.com/cameronjump/JumpStartChart/assets/23038185/bd789660-a632-41e2-9fce-a3905a2cf0a4)
-![image](https://github.com/cameronjump/JumpStartChart/assets/23038185/d035221f-f87e-41f1-92ba-c31fecc966ef)
-![image](https://github.com/cameronjump/JumpStartChart/assets/23038185/d661891b-465e-4fd9-8683-0b1f9c8f09e7)
+ <img src="https://github.com/cameronjump/JumpStartChart/assets/23038185/ba8fa5c0-51d6-4881-8548-ea35bae54526" width=400>
+ <img src="https://github.com/cameronjump/JumpStartChart/assets/23038185/bd789660-a632-41e2-9fce-a3905a2cf0a4" width=400>
+ <img src="https://github.com/cameronjump/JumpStartChart/assets/23038185/d035221f-f87e-41f1-92ba-c31fecc966ef" width=400>
+ <img src="https://github.com/cameronjump/JumpStartChart/assets/23038185/d661891b-465e-4fd9-8683-0b1f9c8f09e7" width=400>
 
 
 <!-- LICENSE -->
