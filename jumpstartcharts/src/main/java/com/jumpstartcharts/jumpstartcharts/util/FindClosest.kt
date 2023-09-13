@@ -1,6 +1,6 @@
 package com.jumpstartcharts.jumpstartcharts.util
 
-object FindClosest {
+internal object FindClosest {
 
     /**
      * Use binary search to find closet value xValue

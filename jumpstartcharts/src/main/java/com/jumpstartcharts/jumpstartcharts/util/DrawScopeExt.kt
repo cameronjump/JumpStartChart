@@ -68,50 +68,7 @@ fun DrawScope.drawCenteredText(
 
 @Preview
 @Composable
-fun DrawCenteredTextPreview() {
-    MaterialTheme {
-        val context = LocalContext.current
-
-        Canvas(
-            Modifier
-                .fillMaxWidth()
-                .height(300.dp),
-        ) {
-            drawCenteredText(
-                xStart = 0f,
-                xEnd = size.width,
-                yCenter = size.height / 2f,
-                getDefaultAxisLabelPaint(context),
-                "Pizza pizza pizza",
-            )
-        }
-    }
-}
-
-@Preview
-@Composable
-fun DrawCenteredTextXCenterPreview() {
-    MaterialTheme {
-        val context = LocalContext.current
-
-        Canvas(
-            Modifier
-                .fillMaxWidth()
-                .height(300.dp),
-        ) {
-            drawCenteredText(
-                xCenter = size.width / 2f,
-                yCenter = size.height / 2f,
-                getDefaultAxisLabelPaint(context),
-                "Pizza pizza pizza",
-            )
-        }
-    }
-}
-
-@Preview
-@Composable
-fun DrawCenteredOffsetTextPreview() {
+internal fun DrawCenteredOffsetTextPreview() {
     MaterialTheme {
         val context = LocalContext.current
 
@@ -177,4 +134,47 @@ fun DrawScope.defaultDrawHorizontalGridLine(
         start = Offset(xStart, yPos),
         end = Offset(xEnd, yPos),
     )
+}
+
+@Preview
+@Composable
+fun DrawCenteredTextPreview() {
+    MaterialTheme {
+        val context = LocalContext.current
+
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(300.dp),
+        ) {
+            drawCenteredText(
+                xStart = 0f,
+                xEnd = size.width,
+                yCenter = size.height / 2f,
+                getDefaultAxisLabelPaint(context),
+                "Pizza pizza pizza",
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+internal fun DrawCenteredTextXCenterPreview() {
+    MaterialTheme {
+        val context = LocalContext.current
+
+        Canvas(
+            Modifier
+                .fillMaxWidth()
+                .height(300.dp),
+        ) {
+            drawCenteredText(
+                xCenter = size.width / 2f,
+                yCenter = size.height / 2f,
+                getDefaultAxisLabelPaint(context),
+                "Pizza pizza pizza",
+            )
+        }
+    }
 }

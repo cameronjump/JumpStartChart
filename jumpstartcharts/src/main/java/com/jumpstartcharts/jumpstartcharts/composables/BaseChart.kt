@@ -32,7 +32,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
-import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
 import com.jumpstartcharts.jumpstartcharts.data.Dataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.util.FindClosest
@@ -77,7 +76,7 @@ import kotlinx.coroutines.launch
  */
 @Composable
 @Suppress("LongMethod")
-fun <ChartPoint : ChartValuePoint> BaseChart(
+fun <ChartPoint : com.jumpstartcharts.jumpstartcharts.data.ChartPoint> BaseChart(
     datasets: List<Dataset<ChartPoint>>,
     contentDescription: String,
     yValueRangeMin: Float,
@@ -396,7 +395,7 @@ fun <ChartPoint : ChartValuePoint> BaseChart(
 }
 
 @Composable
-private fun <ChartPoint : ChartValuePoint> BaseChartCanvas(
+private fun <ChartPoint : com.jumpstartcharts.jumpstartcharts.data.ChartPoint> BaseChartCanvas(
     datasets: List<Dataset<ChartPoint>>,
     modifier: Modifier,
     allPoints: List<ChartPoint>,
@@ -577,7 +576,7 @@ private fun <ChartPoint : ChartValuePoint> BaseChartCanvas(
 }
 
 @Composable
-private fun <ChartPoint : ChartValuePoint> BaseChartHighlightCanvas(
+private fun <ChartPoint : com.jumpstartcharts.jumpstartcharts.data.ChartPoint> BaseChartHighlightCanvas(
     datasets: List<Dataset<ChartPoint>>,
     modifier: Modifier,
     selectedXValue: ChartSelectedValue?,

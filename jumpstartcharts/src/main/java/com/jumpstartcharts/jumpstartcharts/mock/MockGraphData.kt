@@ -2,7 +2,7 @@ package com.jumpstartcharts.jumpstartcharts.mock
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
-import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.Dataset
 
 object MockGraphData {
@@ -11,9 +11,9 @@ object MockGraphData {
         override val x: Long,
         override val y: Float,
         val label: String,
-    ) : ChartValuePoint
+    ) : ChartPoint
 
-    data class MockDataset<T : ChartValuePoint>(
+    data class MockDataset<T : ChartPoint>(
         override val color: Color = Color.Black,
         override val highlightColor: Color = lerp(color, Color.White, .5f),
         override val points: List<T>,
