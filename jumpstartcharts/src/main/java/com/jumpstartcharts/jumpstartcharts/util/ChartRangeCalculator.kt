@@ -1,7 +1,7 @@
 package com.jumpstartcharts.jumpstartcharts.util
 
 import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
-import com.jumpstartcharts.jumpstartcharts.data.Dataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
 
 internal object ChartRangeCalculator {
 
@@ -10,7 +10,7 @@ internal object ChartRangeCalculator {
      * [roundValue] lambda
      */
     private fun <Point : ChartPoint> upperBound(
-        dataSets: List<Dataset<Point>>,
+        dataSets: List<ChartDataset<Point>>,
         roundValue: (value: Float) -> Float,
     ): Float {
         val maxYValue = dataSets.flatMap { it.points }.maxOfOrNull { it.y } ?: run {
@@ -25,7 +25,7 @@ internal object ChartRangeCalculator {
      * [roundValue] lambda
      */
     private fun <Point : ChartPoint> lowerBound(
-        dataSets: List<Dataset<Point>>,
+        dataSets: List<ChartDataset<Point>>,
         roundValue: (value: Float) -> Float,
     ): Float {
         val minYValue = dataSets.flatMap { it.points }.minOfOrNull { it.y } ?: run {
@@ -39,7 +39,7 @@ internal object ChartRangeCalculator {
      * Given [dataSets] finds the upper bound based on [defaultUpperBound]
      */
     internal fun <Point : ChartPoint> defaultUpperBound(
-        dataSets: List<Dataset<Point>>,
+        dataSets: List<ChartDataset<Point>>,
     ): Float {
         return upperBound(
             dataSets,
@@ -51,7 +51,7 @@ internal object ChartRangeCalculator {
      * Given [dataSets] finds the lower bound based on [defaultLowerBound]
      */
     internal fun <Point : ChartPoint> defaultLowerBound(
-        dataSets: List<Dataset<Point>>,
+        dataSets: List<ChartDataset<Point>>,
     ): Float {
         return lowerBound(
             dataSets,

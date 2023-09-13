@@ -6,7 +6,7 @@ import com.jumpstartcharts.jumpstartcharts.composables.BaseChart
 /**
  * DataSet interface required for lists of points to be used in [BaseChart]
  */
-interface Dataset<T : ChartPoint> {
+interface ChartDataset<T : ChartPoint> {
 
     val color: Color
 

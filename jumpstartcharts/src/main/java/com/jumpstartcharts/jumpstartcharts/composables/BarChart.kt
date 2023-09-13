@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
-import com.jumpstartcharts.jumpstartcharts.data.Dataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
 import com.jumpstartcharts.jumpstartcharts.util.ChartRangeCalculator
@@ -31,7 +31,7 @@ import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
  */
 @Composable
 fun <ChartPoint : com.jumpstartcharts.jumpstartcharts.data.ChartPoint> ComposableBarChart(
-    datasets: List<Dataset<ChartPoint>>,
+    datasets: List<ChartDataset<ChartPoint>>,
     contentDescription: String,
     yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
     yValueRangeMax: Float = ChartRangeCalculator.defaultUpperBound(datasets),

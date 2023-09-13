@@ -3,9 +3,9 @@ package com.jumpstartcharts.jumpstartcharts.mock
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
-import com.jumpstartcharts.jumpstartcharts.data.Dataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
 
-object MockGraphData {
+internal object MockGraphData {
 
     data class MockPoint(
         override val x: Long,
@@ -17,7 +17,7 @@ object MockGraphData {
         override val color: Color = Color.Black,
         override val highlightColor: Color = lerp(color, Color.White, .5f),
         override val points: List<T>,
-    ) : Dataset<T>
+    ) : ChartDataset<T>
 
     val MOCK_LINE_CHART_DATA_A = listOf(
         MockPoint(0, 1234.0f, "Jan 2020"),
