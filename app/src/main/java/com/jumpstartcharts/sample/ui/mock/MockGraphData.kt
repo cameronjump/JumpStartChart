@@ -1,9 +1,15 @@
-package com.jumpstartcharts.jumpstartcharts.mock
+package com.jumpstartcharts.sample.ui.mock
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
 import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
 import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
+import com.jumpstartcharts.sample.ui.theme.Pink40
+import com.jumpstartcharts.sample.ui.theme.Pink80
+import com.jumpstartcharts.sample.ui.theme.Purple40
+import com.jumpstartcharts.sample.ui.theme.Purple80
+import com.jumpstartcharts.sample.ui.theme.PurpleGrey40
+import com.jumpstartcharts.sample.ui.theme.PurpleGrey80
 
 internal object MockGraphData {
 
@@ -39,7 +45,7 @@ internal object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_A = MockDataset(
         points = MOCK_LINE_CHART_DATA_A,
-        color = Colors.Slate,
+        color = Purple40,
     )
 
     val MOCK_LINE_CHART_DATA_B = listOf(
@@ -62,7 +68,7 @@ internal object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_B = MockDataset(
         points = MOCK_LINE_CHART_DATA_B,
-        color = Colors.BlueGray,
+        color = PurpleGrey40,
     )
 
     private val MOCK_LINE_CHART_DATA_NEGATIVE_VALUES = listOf(
@@ -85,7 +91,7 @@ internal object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_C = MockDataset(
         points = MOCK_LINE_CHART_DATA_NEGATIVE_VALUES,
-        color = Color.Yellow,
+        color = Pink40,
     )
 
     private val MOCK_LINE_CHART_DATA_D = listOf(
@@ -108,7 +114,7 @@ internal object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_D = MockDataset(
         points = MOCK_LINE_CHART_DATA_D,
-        color = Color.Green,
+        color = Pink80,
     )
 
     private val MOCK_BAR_CHART_DATA_A = listOf(
@@ -122,8 +128,8 @@ internal object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_A = MockDataset(
         points = MOCK_BAR_CHART_DATA_A,
-        color = Colors.DarkGrey,
-        highlightColor = Colors.BlueGray,
+        color = Purple40,
+        highlightColor = Purple80,
     )
 
     private val MOCK_BAR_CHART_DATA_B = listOf(
@@ -137,8 +143,8 @@ internal object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_B = MockDataset(
         points = MOCK_BAR_CHART_DATA_B,
-        color = Colors.LightBlue,
-        highlightColor = Colors.Slate,
+        color = PurpleGrey40,
+        highlightColor = PurpleGrey80,
     )
 
     private val MOCK_BAR_CHART_DATA_C = listOf(
@@ -147,7 +153,8 @@ internal object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_C = MockDataset(
         points = MOCK_BAR_CHART_DATA_C,
-        color = Color.Magenta,
+        color = Pink40,
+        highlightColor = Pink80,
     )
 
     private val MOCK_BAR_CHART_DATA_D = listOf(
@@ -156,6 +163,7 @@ internal object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_D = MockDataset(
         points = MOCK_BAR_CHART_DATA_D,
-        color = Color.Yellow,
+        color = Color.Magenta,
+
     )
 }

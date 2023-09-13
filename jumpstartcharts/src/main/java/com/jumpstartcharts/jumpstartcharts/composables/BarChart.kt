@@ -14,10 +14,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
-import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
-import com.jumpstartcharts.jumpstartcharts.data.Dataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
 import com.jumpstartcharts.jumpstartcharts.util.ChartRangeCalculator
@@ -31,8 +31,8 @@ import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
  * Provides reason defaults to make [BaseChart] a Bar Chart
  */
 @Composable
-fun <ChartPoint : ChartValuePoint> ComposableBarChart(
-    datasets: List<Dataset<ChartPoint>>,
+fun <Point : ChartPoint> BarChart(
+    datasets: List<ChartDataset<Point>>,
     contentDescription: String,
     yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
     yValueRangeMax: Float = ChartRangeCalculator.defaultUpperBound(datasets),
@@ -360,9 +360,9 @@ private fun calculateYPosition(
 
 @Preview(showBackground = true)
 @Composable
-private fun BarChartPreview() {
+internal fun BarChartPreview() {
     Box(modifier = Modifier.padding(8.dp)) {
-        ComposableBarChart(
+        BarChart(
             listOf(
                 MockGraphData.MOCK_BAR_CHART_DATASET_A,
                 MockGraphData.MOCK_BAR_CHART_DATASET_B,

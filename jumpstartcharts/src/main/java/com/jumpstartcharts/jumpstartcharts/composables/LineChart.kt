@@ -13,10 +13,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
-import com.jumpstartcharts.jumpstartcharts.data.ChartValuePoint
-import com.jumpstartcharts.jumpstartcharts.data.Dataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.mock.MockGraphData
 import com.jumpstartcharts.jumpstartcharts.util.CHART_GUIDELINE_PATTERN
@@ -33,8 +33,8 @@ import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
  * Provides reason defaults to make [BaseChart] a Line Chart
  */
 @Composable
-fun <ChartPoint : ChartValuePoint> LineChart(
-    datasets: List<Dataset<ChartPoint>>,
+fun <Point : ChartPoint> LineChart(
+    datasets: List<ChartDataset<Point>>,
     contentDescription: String,
     yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
     yValueRangeMax: Float = ChartRangeCalculator.defaultUpperBound(datasets),

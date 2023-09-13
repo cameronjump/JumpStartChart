@@ -21,7 +21,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.jumpstartcharts.sample.ui.canvaschart.CanvasChartSampleScreen
-import com.jumpstartcharts.sample.ui.canvaschart.CanvasChartStepTwo
+import com.jumpstartcharts.sample.ui.mock.SampleItem
+import com.jumpstartcharts.sample.ui.mock.samples
 import com.jumpstartcharts.sample.ui.theme.JumpStartChartsTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,7 +39,7 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(navController = navController, startDestination = "home") {
                         composable("home") { MainScreen(navController) }
-                        mainScreenItems.forEach { item ->
+                        samples.forEach { item ->
                             composable(item.route) { item.show() }
                         }
                     }
@@ -48,25 +49,13 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-private val mainScreenItems = listOf(
-    MainScreenItem("Canvas Chart Sample", "sample") {
-        CanvasChartSampleScreen()
-    }
-)
-
-private data class MainScreenItem(
-    val title: String,
-    val route: String,
-    val show: @Composable () -> Unit,
-)
-
 @Composable
 fun MainScreen(navController: NavController) {
     Column(
         modifier = Modifier.padding(horizontal = 16.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
     ) {
-        mainScreenItems.forEach {
+        samples.forEach {
             Button(
                 modifier = Modifier.fillMaxWidth(),
                 onClick = { navController.navigate(it.route) },

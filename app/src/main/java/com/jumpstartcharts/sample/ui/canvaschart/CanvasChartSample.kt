@@ -561,7 +561,7 @@ private val sampleItems = listOf(
 )
 
 @OptIn(ExperimentalFoundationApi::class)
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CanvasChartSampleScreen() {
     Column(modifier = Modifier.padding(24.dp)) {
@@ -610,6 +610,8 @@ fun CanvasChartSampleScreen() {
             } else {
                 Spacer(modifier = Modifier.weight(1f))
             }
+
+            Modifier.padding(16.dp)
 
             if (state.currentPage < pageCount - 1) {
                 Button(
