@@ -79,10 +79,21 @@ class BarChartKtTest {
     fun testDrawNoLines() {
         paparazzi.snapshot {
             BarChart(
-                datasets = listOf(MockGraphData.MOCK_LINE_CHART_DATASET_A),
+                datasets = listOf(MockGraphData.MOCK_BAR_CHART_DATASET_A),
                 drawXAxis = { _, _, _ -> },
                 drawYAxis = { _, _, _ -> },
                 drawHorizontalGridLine = { _, _, _, _ -> },
+                contentDescription = "",
+            )
+        }
+    }
+
+    @Test
+    fun testDrawXLabels() {
+        paparazzi.snapshot {
+            BarChart(
+                datasets = listOf(MockGraphData.MOCK_BAR_CHART_DATASET_A),
+                formatXAxisLabel = { it.toString() },
                 contentDescription = "",
             )
         }

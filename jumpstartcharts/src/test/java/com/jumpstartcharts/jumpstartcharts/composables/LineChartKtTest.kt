@@ -156,4 +156,15 @@ class LineChartKtTest {
             )
         }
     }
+
+    @Test
+    fun testDrawXLabels() {
+        paparazzi.snapshot {
+            LineChart(
+                datasets = listOf(MockGraphData.MOCK_LINE_CHART_DATASET_A),
+                formatXAxisLabel = { it.toString() },
+                contentDescription = "",
+            )
+        }
+    }
 }
