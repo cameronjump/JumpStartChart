@@ -31,7 +31,7 @@ import com.jumpstartcharts.jumpstartcharts.util.getDefaultAxisLabelPaint
  * Provides reason defaults to make [BaseChart] a Bar Chart
  */
 @Composable
-fun <Point : ChartPoint> ComposableBarChart(
+fun <Point : ChartPoint> BarChart(
     datasets: List<ChartDataset<Point>>,
     contentDescription: String,
     yValueRangeMin: Float = ChartRangeCalculator.defaultLowerBound(datasets),
@@ -362,7 +362,7 @@ private fun calculateYPosition(
 @Composable
 internal fun BarChartPreview() {
     Box(modifier = Modifier.padding(8.dp)) {
-        ComposableBarChart(
+        BarChart(
             listOf(
                 MockGraphData.MOCK_BAR_CHART_DATASET_A,
                 MockGraphData.MOCK_BAR_CHART_DATASET_B,
