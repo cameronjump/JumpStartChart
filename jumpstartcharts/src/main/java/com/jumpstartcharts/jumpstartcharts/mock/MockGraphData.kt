@@ -39,7 +39,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_A = MockDataset(
         points = MOCK_LINE_CHART_DATA_A,
-        color = Color(color = 0xFF3C4655),
+        color = Colors.Slate,
     )
 
     val MOCK_LINE_CHART_DATA_B = listOf(
@@ -62,7 +62,7 @@ object MockGraphData {
 
     val MOCK_LINE_CHART_DATASET_B = MockDataset(
         points = MOCK_LINE_CHART_DATA_B,
-        color = Color(color = 0xFF7990A5),
+        color = Colors.BlueGray,
     )
 
     private val MOCK_LINE_CHART_DATA_NEGATIVE_VALUES = listOf(
@@ -122,8 +122,8 @@ object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_A = MockDataset(
         points = MOCK_BAR_CHART_DATA_A,
-        color = Color(color = 0x4DCCD6E0),
-        highlightColor = Color(color = 0xFF7990A5),
+        color = Colors.DarkGrey,
+        highlightColor = Colors.BlueGray,
     )
 
     private val MOCK_BAR_CHART_DATA_B = listOf(
@@ -137,8 +137,8 @@ object MockGraphData {
 
     val MOCK_BAR_CHART_DATASET_B = MockDataset(
         points = MOCK_BAR_CHART_DATA_B,
-        color = Color(color = 0xFFCCD6E0),
-        highlightColor = Color(color = 0xFF3C4655),
+        color = Colors.LightBlue,
+        highlightColor = Colors.Slate,
     )
 
     private val MOCK_BAR_CHART_DATA_C = listOf(
