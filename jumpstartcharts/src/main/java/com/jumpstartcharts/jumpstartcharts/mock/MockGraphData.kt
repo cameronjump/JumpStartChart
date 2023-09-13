@@ -2,8 +2,8 @@ package com.jumpstartcharts.jumpstartcharts.mock
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
-import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 
 internal object MockGraphData {
 

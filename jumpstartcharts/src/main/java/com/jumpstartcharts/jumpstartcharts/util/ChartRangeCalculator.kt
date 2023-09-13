@@ -1,7 +1,7 @@
 package com.jumpstartcharts.jumpstartcharts.util
 
-import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 
 internal object ChartRangeCalculator {
 

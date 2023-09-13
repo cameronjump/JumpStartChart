@@ -30,9 +30,10 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
+import com.jumpstartcharts.jumpstartcharts.data.ChartPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartPositionPoint
 import com.jumpstartcharts.jumpstartcharts.data.ChartSelectedValue
-import com.jumpstartcharts.jumpstartcharts.data.ChartDataset
 import com.jumpstartcharts.jumpstartcharts.data.ScrubbingBehavior
 import com.jumpstartcharts.jumpstartcharts.util.FindClosest
 import com.jumpstartcharts.jumpstartcharts.util.drawCenteredText
@@ -76,8 +77,8 @@ import kotlinx.coroutines.launch
  */
 @Composable
 @Suppress("LongMethod")
-fun <ChartPoint : com.jumpstartcharts.jumpstartcharts.data.ChartPoint> BaseChart(
-    datasets: List<ChartDataset<ChartPoint>>,
+fun <Point : ChartPoint> BaseChart(
+    datasets: List<ChartDataset<Point>>,
     contentDescription: String,
     yValueRangeMin: Float,
     yValueRangeMax: Float,
